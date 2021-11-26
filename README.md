@@ -1,0 +1,1 @@
+# KCR_seminarska1
