@@ -1,0 +1,55 @@
+<div class="col-12">
+    <img style="height:20vh" src="./assets/logosmall.png">
+</div>
+<div class="col-2"style="position: fixed;right: 12px;bottom: 30px;">
+    <button style="margin: 0.3rem" class ="btn btn-secondary col-12" routerLink="/narocilo"data-toggle="tooltip"
+    data-placement="bottom" title="(CTRL+B) Nazaj na stran s podatki o naročilu (podatki bodo izgubljeni)">Nazaj</button>
+    <button style="margin: 0.3rem" class="btn btn-success col-12" (click)="check()"data-toggle="tooltip"
+    data-placement="bottom" title="Naročilo bo posredovano sistemu">Končaj naročilo</button>
+</div>
+<div class="col-12 row justify-content-center" style="margin-left: auto;margin-right: auto;">
+    <div class="d-flex justify-content-center col-12">
+        <p style="margin-bottom: 0.5rem;font-size: larger;"><b> Podatki o naročniku:</b></p>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Ime naročnika</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Vnesite ime" [(ngModel)]="ime">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputEmail2">Priimek naročnika</label>
+            <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Vnesite priimek"[(ngModel)]="priimek">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputEmail3">Kraj naročnika</label>
+            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Vnesite kraj"[(ngModel)]="kraj">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleInputEmail4">Naslov naročnika</label>
+            <input type="text" class="form-control" id="exampleInputEmail4" placeholder="Vnesite naslov"[(ngModel)]="naslov">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label for="bon">Študentski bon</label>
+            <select id="bon" class="form-select" [(ngModel)]="bon">
+                <option value="true">Da</option>
+                <option value="false">Ne</option>
+            </select>
+            <br>
+            <label for="bon">Način plačila</label>
+            <select id="bon" class="form-select" [(ngModel)]="placilo">
+                <option value="gotovina">Gotovina</option>
+                <option value="kartica">Kartica</option>
+            </select>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputEmail19">Opombe naročila</label>
+                <input type="text" class="form-control" id="exampleInputEmail19" placeholder="Opombe">
+            </div>
+        </div>
+    </div>
+</div>

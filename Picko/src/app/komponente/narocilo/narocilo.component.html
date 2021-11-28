@@ -1,0 +1,86 @@
+<style>
+    #and input[type="checkbox"]:checked {
+    background: #dc3545;
+}
+#and input[type="checkbox"]:checked:after {
+    /* Heres your symbol replacement */
+    content: "🗙";
+    font-size: 15px;
+    position: absolute;
+    margin-top: -5px;
+    color: #fff;
+}
+</style>
+<div class="col-12">
+    <img style="height:20vh" src=".\assets\logosmall.png">
+</div>
+<div class="col-2"style="position: fixed;right: 12px;bottom: 30px;">
+    <button style="margin: 0.3rem" class ="btn btn-secondary col-12" routerLink=""
+    data-toggle="tooltip" data-placement="top" title="(CTRL+B) Nazaj na začetno stran (podatki bodo izgubljeni)">Nazaj</button>
+    <button style="margin: 0.3rem" class="btn btn-success col-12"
+     (click)="check()" [disabled]="!isSelected" data-toggle="tooltip"
+     data-placement="bottom" title="Naprej na stran s podatki o naročniku">O naročniku</button>
+</div>
+<div class="col-12 d-flex justify-content-center">
+    <div class="d-block">
+        <p style="margin-bottom: 0.5rem;font-size:larger;"><b> Število pic: </b>(npr. 3)</p>
+        <input class="col-12" type="number" id="st_pic" style="margin-bottom: 0.5rem;"><br>
+        <button *ngIf="!isSelected" class="btn btn-primary col-12"
+         style="padding: .200rem .5rem" (click)="updateSt_pic()" data-toggle="tooltip"
+         data-placement="bottom" title="Potrdi število pic">Potrdi</button>
+        <button *ngIf="isSelected" class="btn btn-danger col-12"
+         style="padding: .200rem .5rem" (click)="resetSt_pic()" data-toggle="tooltip"
+         data-placement="bottom" title="Še enkrat bo potreben vnos števila pic">Prekliči</button>
+    </div>
+</div>
+<div style="margin: 1rem auto" class="col-12 d-flex row justify-content-center">
+    <div class="col-8" *ngFor="let in of counter(st_pic) ;let i = index">
+        <div class="card" style="margin-bottom: 1rem;">
+            <h5 class="card-header">Pica št. {{i+1}}</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                    <p>Vrsta pice</p>
+                    <select class="form-select form-select-sm" [(ngModel)]="selected[+i]">
+                        <option value="0">Margerita</option>
+                        <option value="1">Klasična</option>
+                        <option value="2">Zelenjavna</option>
+                        <option value="3">Kmečka</option>
+                        <option value="4">Kraška</option>
+                        <option value="5">Morska</option>
+                    </select>
+                    </div>
+                    <div class="col-6">
+                        <p>Velikost pice</p>
+                        <select class="form-select form-select-sm" [(ngModel)]="neki[+i]">
+                            <option value="0">Mala</option>
+                            <option value="1">Srednja</option>
+                            <option value="2">Velika</option>
+                        </select>
+                        </div>
+                </div>
+                <br>
+                <div class="row" *ngIf="selected[+i]">
+                    <div class="col-6">
+                        <p><b>Brez: </b></p>
+                        <div id="and" class="form-check col-8" *ngFor="let a of sestavine[+selected[+i]]">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              {{a}}
+                            </label>
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        <p><b>Dodatki: </b></p>
+                        <div class="form-check col-8" *ngFor="let a of dodatki">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              {{a}}
+                            </label>
+                          </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>

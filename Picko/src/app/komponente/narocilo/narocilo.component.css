@@ -1,0 +1,8 @@
+#and input[type="checkbox"]:checked {
+    background: #dc3545;
+}
+#and input[type="checkbox"]:checked:after {
+    /* Heres your symbol replacement */
+    content: "X";
+    color: #fff;
+}

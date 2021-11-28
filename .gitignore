@@ -40,8 +40,6 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-/Picko-linux-x64
-/Picko-win32-x64
 
 # System Files
 .DS_Store
